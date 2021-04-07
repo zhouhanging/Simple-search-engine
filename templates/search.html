@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="UTF-8" />
+    <title>简单搜索引擎</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="../css/search.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="logo">
+        <img  src="../images/logo.png" alt="百度一下">
+
+      </div>
+      <div class="con_left">
+        <form class="search" method="post" action="/">
+          <div class="form-search">
+            <input
+              type="text"
+              class="form-control"
+              value="{{ value }}"
+              name="query"
+              id="query"
+            />
+
+          </div>
+          <input
+            class="btn"
+            role="button"
+            type="submit"
+            value="百度一下"
+            id="btn"
+          />
+        </form>
+
+        <p>为你找到相关结果共有{{ length }}条结果</p>
+
+        <div id="box">
+          {% for doc in doc_list %}
+          <h4><a href="{{ doc[0] }}" target="_blank">{{ doc[1]|safe }}</a></h4>
+          <p>{{ doc[2]|safe }}</p>
+          <p>地址：{{ doc[0] }}</p>
+
+          {% endfor %}
+        </div>
+      </div>
+      <div class="con_right"> 
+        <div >
+          <p class="ri_tel">百度首页 &nbsp;&nbsp;&nbsp;设置&nbsp;&nbsp;&nbsp;登录</p>
+        </div>
+        <div class="ri_con">
+          <p>
+            <span>百度热榜</span>
+            <span>
+                换一换
+            </span>
+        </p>
+    <ul class="hots">
+        <li><em>1&nbsp;&nbsp;</em> <span>大连本轮疫情来源初步判定</span><em>&nbsp;&nbsp;483万</em></li>
+        <li><em>2&nbsp;&nbsp;</em><span>天问一号飞行里程突破4亿公里</span><em>&nbsp;&nbsp;483万</em></li>
+         <li><em>3&nbsp;&nbsp;</em><span>北京8个月大女婴确诊 密接者8人</span><em>&nbsp;&nbsp;483万</em></li>
+        <li><em>4&nbsp;&nbsp;</em><span>这个新年中美欧各发生了一件大事</span><em>&nbsp;&nbsp;483万</em></li>
+         <li><em>5&nbsp;&nbsp;</em><span>小伙因买内衣不合适迎亲被拒</span><em>&nbsp;&nbsp;483万</em></li>
+        <li><em>6&nbsp;&nbsp;</em><span>周知!新冠病毒疫苗接种须知</span><em>&nbsp;&nbsp;483万</em></li>
+        <li><em>7&nbsp;&nbsp;</em><span>春节如何防范疫情 专家建议来了</span><em>&nbsp;&nbsp;483万</em></li>
+        <li><em>8&nbsp;&nbsp;</em><span>大S回应蔡康永道歉</span><em>&nbsp;&nbsp;483万</em></li>
+        <li><em>9&nbsp;&nbsp;</em><span>江边漂4吨来源不明走私冻肉遭哄抢</span><em>&nbsp;&nbsp;483万</em></li>
+        <li><em>10&nbsp;&nbsp;</em><span>韩国首次出现全年人口负增长</span><em>&nbsp;&nbsp;483万</em></li>
+        <li><em>11&nbsp;&nbsp;</em><span>河北石家庄新增病例曾参加婚礼</span><em>&nbsp;&nbsp;483万</em></li>
+    
+    </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
